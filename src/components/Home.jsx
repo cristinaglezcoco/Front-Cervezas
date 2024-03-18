@@ -27,11 +27,13 @@ function Home() {
 
         <div className='info-beers'>
 
-          <h1>LAS ARTESANAS DE CENTENO MAS  PURAS</h1>
-          <p>Cervezas Colmo, las primeras   cervezas elaboradas con centeno de los  Ancares.</p>
+          <h1><span>LAS ARTESANAS DE</span> CENTENO MAS  PURAS</h1>
+          <p>Cervezas Colmo, las primeras cervezas elaboradas con centeno de los  Ancares.</p>
           <p>Un proyecto circular y social que  va más allá de una cerveza.</p>
 
+          <div className='container-btn'>
           <button type='button' className='info-btn'>Más Información</button>
+          </div>
 
         </div>
 

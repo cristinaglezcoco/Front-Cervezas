@@ -1,73 +1,130 @@
-.container-home {
-    
-    background-image: url(../images/bg-home.jpg);
-    width: 100vh;
-    background-size: contain;
-    background-repeat: no-repeat;
 
+
+.container-home {
+   
+    background-image: url(../images/bg-home.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    transition: 0.3s;
+    width: 100%;
+    height: 100vh;
+ 
     .home-menu{
         width: 100%;
-        height: 100%;
         display: flex;
         flex-direction: column;
+        align-items: center;
+        padding-top: 60px;
+        justify-content: flex-start;
+        gap: 20px;
 
         .logo-menu {
-            width: 150px;
+            width: 200px;
             height: auto;
-
+ 
             img {
                 width: 100%;
                 height: 100%;
             }
         }
-
+ 
         .list-menu {
             width: 100%;
             display: flex;
-            
+            align-items: center;
+            justify-content: center;
+           
            > ul {
-
+ 
                 display: flex;
                 flex-direction: row;
                 justify-content: center;
                 gap: 20px;
-
+                
+ 
                 >li {
                     color: #fff;
+                    
                 }
-
+ 
             }
-            
+           
         }
     }
-
+ 
     .container-info {
-
+ 
         width: 100%;
         height: 100%;
         display: flex;
         flex-direction: row;
-        justify-content: center;
         gap: 20px;
-
+        justify-content: center;
+        align-items: center;
+ 
         .info-beers {
 
+            width: calc(100% - 600px);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
             color: #fff;
+            margin-bottom: 150px;
 
-            .info-btn {
+            >h1 {
+                padding: 20px;
+                font-size: 70px;
+                font-family: cervezas;
 
-                background-color: orangered;
-                border: none;
-                outline: none;
+                >span {
+                    color: #D8732D;
+                    font-family: cervezas;
                 
+                }
             }
+
+            >p {
+                padding-left: 20px;
+                font-size: 18px;
+            }
+
+            
+            .container-btn {
+
+                padding: 20px;
+                margin-top: 20px;
+               
+
+                .info-btn {
+ 
+                    background-color: #D8732D;
+                    border: none;
+                    outline: none;
+                    padding: 15px;
+                    border-radius: 15px;
+                    width: 200px;
+
+                    font-size: 18px;
+                    font-weight: bold;
+                    color: #fff;
+                   
+                }
+
+            }
+ 
         }
-
+ 
         .info-img {
-
-            width: 250px;
+ 
+            width: 500px;
             height: auto;
-
+ 
             img {
                 width: 100%;
                 height: 100%;

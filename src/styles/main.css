@@ -1,12 +1,30 @@
+@font-face {
+  font-family: cervezas;
+  src: url(../styles/fonts/modernlove-caps-unspecified.ttf);
+}
+
+html{
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
+}
+
 * {
-    padding: 0;
-    margin: 0;
-    text-decoration: none;
-    list-style: none;
-    box-sizing: border-box;
-    font-family: "Waltograph", sans-serif;
-  }
-  
-  body {
-    width: 100%;
-  }/*# sourceMappingURL=main.css.map */
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  list-style: none;
+  box-sizing: border-box;
+  font-family: "Waltograph", sans-serif;
+}
+
+body {
+  width: 100%;
+}
+main {
+display: block;
+}
+h1 {
+font-size: 2em;
+/* margin: 0.67em; */
+}
+/*# sourceMappingURL=main.css.map */
