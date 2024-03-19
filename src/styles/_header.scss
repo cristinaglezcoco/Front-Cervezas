@@ -1,0 +1,34 @@
+
+
+.container-header{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 100px;
+    align-items: center;
+    padding: 0 30px;
+
+    .logo-header{
+        width: 100px;
+        
+        
+        >img{
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    .list-header{
+        
+        display: flex;
+        
+        >ul{
+            flex-direction: row;
+            display: flex;
+            width: 100%;
+            justify-content: center;
+            gap: 20px;
+        }
+    }
+}

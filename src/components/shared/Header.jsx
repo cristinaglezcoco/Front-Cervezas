@@ -1,4 +1,5 @@
-import Logo from '../images/log-cervezas-negro.png'
+import Logo from '../../images/logo-cervezas-negro.png'
+import "../../styles/_header.scss"
 
 function Header() {
   return (
