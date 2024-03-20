@@ -1,6 +1,7 @@
 import LogoBlanco from '../images/logo-colmo-cervezas.png'
 import CervezaInicio from '../images/beer-home.png'
 import '../styles/_home.scss'
+import { Link } from 'react-router-dom'
 
 function Home() {
   return (
@@ -14,11 +15,12 @@ function Home() {
 
           <div className="list-menu">
               <ul>
-                  <li>Inicio</li>
+                  <li><Link to="/">Inicio</Link></li>
                   <li>Quiénes somos</li>
                   <li>Productos</li>
                   <li>Galería</li>
                   <li>Contacto</li>
+                  <li><Link to="/login">Login</Link></li>
               </ul>
           </div>
       </div>

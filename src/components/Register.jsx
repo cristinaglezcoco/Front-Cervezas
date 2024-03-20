@@ -2,9 +2,13 @@ import { useState } from "react";
 import { API } from "./axios/api.js";
 import "../styles/_register.scss";
 import Header from "./shared/Header.jsx";
+import { useNavigate } from "react-router-dom";
+
 
 
 function Register() {
+
+    const navigate = useNavigate();
 
     const [formData, setFormData] = useState({
         name: "",
@@ -18,7 +22,9 @@ function Register() {
         city: "",
         country: ""
 
-      })
+    })
+
+    const [errorMessage, setErrorMessage] = useState("");
 
     const handleInput = (event) => {
         const {id, value} = event.target;
@@ -31,12 +37,61 @@ function Register() {
         })
     }
 
+    //pasa los campos a español para los mensajes de error
+    const campoTraducido = {
+        name: "Nombre",
+        surname: "Apellidos",
+        email: "Email",
+        password: "Contraseña",
+        telephone: "Teléfono",
+        adress: "Dirección",
+        postcode: "Código postal",
+        province: "Provincia",
+        city: "Ciudad",
+        country: "País"
+    };
+
+    const validateEmailFormat = (email) => {
+        const regex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
+        
+        const validDomains = ["gmail.com", "gmail.es", "gmail.net", "hotmail.com", "hotmail.es", "hotmail.net", "yahoo.com", "yahoo.es", "yahoo.net", "outlook.com", "outlook.es", "outlook.net", "aol.com", "aol.es", "aol.net", "gmx.com", "gmx.es", "gmx.net"];
+        // Dominios permitidos
+    
+        if (!regex.test(email)) {
+            return false; //para el formato
+        }
+    
+        const domain = email.split('@')[1];
+        if (!validDomains.includes(domain)) {
+            return false; // para el dominio
+        }
+    
+        return true; // Correo válido con formato y dominio correctos
+    };
+    
+
     const compareUsers = async(event) => {
         event.preventDefault();
+
+        // Verificar si faltan datos
+        const requiredFields = ["name", "surname", "email",    "password", "telephone", "adress", "postcode", "province",  "city", "country"];
+        const missingFields = requiredFields.filter(field => !formData[field]);
+        const translatedFields = missingFields.map(field => campoTraducido[field]);
+        if (translatedFields.length > 0) {
+          setErrorMessage(`Faltan los siguientes datos: ${translatedFields.join(", ")}`);
+          return; 
+        }
+
+        //verificar email desde el front
+        if (!validateEmailFormat(formData.email)) {
+            setErrorMessage("El correo electrónico no es válido");
+            return;
+        }
+
         try {
           const result = await API.post('users/register', formData);
           console.log(result);
-        //   navigate('/login');
+          navigate('/login');
         } catch (error){
           console.error(error);
         }
@@ -46,9 +101,10 @@ function Register() {
   return (
     <>
     <Header/>
-    <section className="bg-register">
+    <section className="bg-form">
         <h2>Registro</h2>
     </section>
+
     <form onSubmit={compareUsers} className="register-form">
         <div className="form-info">
             <label>Nombre</label>
@@ -90,7 +146,9 @@ function Register() {
             <label>Pais</label>
             <input onChange={handleInput} type="text" id="country"/>
         </div>
-        <button type="submit" className="register-button">Registrarse</button>
+        <button type="submit" className="register-btn">Registrarse</button>
+
+        {errorMessage && <div className="error-message">{errorMessage}</div>}
     </form>
     </>
   )

@@ -1,0 +1,81 @@
+.bg-form{
+    width: 100%;
+    height: 200px;
+    background-image: url(../images/section-bg.png);
+    position: relative;
+
+    >h2{
+        color: #fff;
+        font-size: 65px;
+        display: flex;
+        justify-content: center;
+        font-family: cervezas;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
+
+.login-form{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    padding: 50px;
+    // border: 3px solid lightgray;
+
+    .form-info{
+        width: 300px;
+        display: flex;
+        flex-direction: column;
+
+        >input{
+            border-radius: 30px;
+            padding: 10px;
+        }
+    }
+
+    .login-area {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 15px;
+
+        .login-btn {
+
+            background-color: #D8732D;
+            border: none;
+            outline: none;
+            padding: 12px;
+            border-radius: 15px;
+            width: 150px;
+
+            cursor: pointer;
+
+            font-size: 16px;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        .login-mssg {
+
+            &:hover {
+                border-bottom: 2px solid #D8732D ;
+                transform: scale(1.05);
+                transition: transform 0.5s ease-in-out;
+            }
+
+            >a {
+                color: #000;
+            }
+            
+        
+        }
+    }
+    
+}

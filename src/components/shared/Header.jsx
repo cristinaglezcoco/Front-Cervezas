@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import Logo from '../../images/logo-cervezas-negro.png'
 import "../../styles/_header.scss"
 
@@ -12,7 +13,7 @@ function Header() {
 
         <div className="list-header">
             <ul>
-                <li>Inicio</li>
+                <li><Link to="/">Inicio</Link></li>
                 <li>Quiénes somos</li>
                 <li>Productos</li>
                 <li>Galería</li>
